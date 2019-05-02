@@ -46,12 +46,14 @@ namespace GetPicture
 
         static async Task Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                HelpMe();
+                return;
+            }
             Args = args;
             switch (Args.Length)
             {
-                case 0:
-                    HelpMe();
-                    break;
                 case 1:
                     SingleArgs(Args[0]);
                     break;
@@ -65,7 +67,6 @@ namespace GetPicture
                     ArgsError();
                     break;
             }
-
         }
         public static async Task Begin()
         {
